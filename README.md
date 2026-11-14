@@ -8,7 +8,12 @@
 
 เว็บ: https://srwjd.github.io/Blockchain-Crowdfunding-Milestone-Fund-Management/
 
-> เว็บเริ่มต้นในโหมดสาธิต โดยยังไม่มี Contract Address บน Sepolia โหมดนี้เก็บข้อมูลเฉพาะใน Local Storage และไม่ทำธุรกรรมจริง ต้อง deploy Contract และตั้งค่า Address ก่อนใช้งาน Blockchain
+> เว็บเริ่มต้นในโหมดสาธิตเพื่อให้ทดลองได้โดยไม่ใช้ Wallet กด **เชื่อมต่อ Wallet** และเลือก Sepolia เพื่ออ่านข้อมูลและทำธุรกรรมกับ Contract ที่ตั้งค่าไว้ด้านล่าง โหมดสาธิตเก็บข้อมูลเฉพาะใน Local Storage และไม่ส่งขึ้น Blockchain
+
+**Sepolia Contract:** [`0x4301EFeAe56d4c04305c0b566Ca471Ff904cabC6`](https://sepolia.etherscan.io/address/0x4301EFeAe56d4c04305c0b566Ca471Ff904cabC6)  
+**Deployment Block:** `12133890` · **Chain ID:** `11155111`
+
+หากเคยบันทึก Address อื่นในหน้าการเชื่อมต่อระบบ ให้เปลี่ยนเป็น Address นี้ เพราะการตั้งค่าในเบราว์เซอร์มีลำดับความสำคัญเหนือไฟล์ config ส่วนกลาง
 
 ## ฟังก์ชันตามโจทย์
 

@@ -1,6 +1,6 @@
 {
   "chainId": 11155111,
-  "contractAddress": "",
-  "deploymentBlock": 0,
+  "contractAddress": "0x4301EFeAe56d4c04305c0b566Ca471Ff904cabC6",
+  "deploymentBlock": 12133890,
   "explorerUrl": "https://sepolia.etherscan.io"
 }
