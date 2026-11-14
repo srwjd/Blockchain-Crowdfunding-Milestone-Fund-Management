@@ -3577,3 +3577,10 @@ footer a {
     scroll-behavior: auto !important;
   }
 }
+
+.refresh-button {
+  display: flex;
+  align-items: center;
+  color: #94a08c;
+  padding: 5px;
+}

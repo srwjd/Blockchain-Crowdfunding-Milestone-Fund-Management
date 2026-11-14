@@ -156,7 +156,7 @@ artifacts/InnovateFund.json      ABI + bytecode + compiler version
 scripts/compile.mjs              Compile และสร้าง artifact/ABI
 scripts/prepare-pages.mjs        เตรียม docs/ สำหรับ Pages แบบ branch
 scripts/publish-config.mjs       อัปเดต config จาก Address และเลขบล็อก
- test/contract.test.mjs          ทดสอบธุรกรรมบน EVM จริงใน Ganache
+test/contract.test.mjs          ทดสอบธุรกรรมบน EVM จริงใน Ganache
 .github/workflows/deploy.yml     CI และ deploy GitHub Pages
 ```
 

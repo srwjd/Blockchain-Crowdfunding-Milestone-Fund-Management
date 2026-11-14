@@ -37,7 +37,7 @@ import {
   Info,
   Download,
 } from "lucide-react";
-import { parseEther, isAddress } from "ethers";
+import { parseEther, formatEther, isAddress } from "ethers";
 import {
   OWNER,
   DONOR,
@@ -187,7 +187,9 @@ function App() {
     };
   }, []);
   useEffect(() => {
-    localStorage.setItem("innovatefund-demo-v1", JSON.stringify(demo));
+    try {
+      localStorage.setItem("innovatefund-demo-v1", JSON.stringify(demo));
+    } catch {}
   }, [demo]);
   useEffect(() => {
     let active = true;
@@ -288,9 +290,10 @@ function App() {
         setDemo(actDemo(demo, action, account));
         setToast({ text: "บันทึกในโหมดสาธิตแล้ว • ไม่มีการใช้ ETH จริง" });
       } else {
+        const version = sessionVersion.current;
         const hash = await writeChain(config, session, action, campaigns);
         setToast({ text: "ธุรกรรมยืนยันบน Sepolia แล้ว", hash });
-        await refresh();
+        if (version === sessionVersion.current) await refresh();
       }
       setModal(null);
       if (action.type === "create") navigate("manage");
@@ -682,6 +685,16 @@ function App() {
             <b>{pageTitle}</b>
           </div>
           <div className="top-actions">
+            {mode === "chain" && session && (
+              <button
+                className="refresh-button"
+                aria-label="รีเฟรชข้อมูลจาก Blockchain"
+                disabled={busy || refreshing}
+                onClick={() => refresh()}
+              >
+                <RefreshCw size={15} className={refreshing ? "spin" : ""} />
+              </button>
+            )}
             <span className={`network-pill ${mode}`}>
               <i />
               {mode === "demo" ? "โหมดสาธิต" : "Sepolia"}
@@ -1771,9 +1784,7 @@ function ActionModal({ modal, busy, mode, account, onClose, onSubmit }) {
               <button
                 type="button"
                 onClick={() =>
-                  setAmount(
-                    eth(BigInt(c.goal) - BigInt(c.raised)).replaceAll(",", ""),
-                  )
+                  setAmount(formatEther(BigInt(c.goal) - BigInt(c.raised)))
                 }
               >
                 เต็มเป้า
